@@ -19,4 +19,18 @@ connection.once('open', () => {
 
 app.listen(3000, function(req,res){
     console.log("Server is started on port 3000");
-})
+});
+
+var Schema = mongoose.Schema;
+var personSchema = new Schema({
+    name: { type: String, required: true},
+    age: Number,
+    favoriteFoods: [String]
+});
+
+var Person = mongoose.model('Person', personSchema);
+let Naruto = new Person({
+    name: "Naruto Uzumaki",
+    age: 22,
+    favoriteFoods: ["MachenCheeze", "Ramen"]
+});
