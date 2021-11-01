@@ -21,6 +21,7 @@ app.listen(3000, function(req,res){
     console.log("Server is started on port 3000");
 });
 
+// Create model Person
 var Schema = mongoose.Schema;
 var personSchema = new Schema({
     name: { type: String, required: true},
@@ -29,8 +30,11 @@ var personSchema = new Schema({
 });
 
 var Person = mongoose.model('Person', personSchema);
-let Naruto = new Person({
-    name: "Naruto Uzumaki",
-    age: 22,
-    favoriteFoods: ["MachenCheeze", "Ramen"]
-});
+let Naruto = function(done) {
+    return new Person({
+        name: "Naruto Uzumaki",
+        age: 22,
+        favoriteFoods: ["MachenCheeze", "Ramen"]    });
+        if(error) return done(error);
+        done(null, result);
+};
