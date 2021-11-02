@@ -83,3 +83,15 @@ var findEditThenSave = (personId, done) => {
         });
     });
 };
+
+//   Perform New Updates on a Document Using model.findOneAndUpdate()
+var findAndUpdate = (personName, done) => {
+    let query = {name: personName};
+    let update = {age: 20};
+    let option = {new: true};
+
+    Person.findOneAndUpdate(query, update, option, (error, individual) => {
+        if(error) return console.log(error);
+        done(null, individual);
+    });
+};
