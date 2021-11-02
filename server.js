@@ -70,3 +70,16 @@ var findPersonById = function(personId, done) {
         done(null, individual);
     });
 };
+
+//  Perform Classic Updates by Running Find, Edit, then Save
+var findEditThenSave = (personId, done) => {
+    Person.findById(personId, (error, person) => {
+        if(error) return console.log('error');
+        person.favoriteFoods.push('yassaPoulet');
+
+        person.save((err, individual) => {
+            if(err) return console.error(err);
+            done(null, individual);
+        });
+    });
+};
