@@ -46,3 +46,11 @@ var createMany = (arrayOfPeople, done) => {
     });
 };
 
+// Find people
+
+var findPeopleByName = function(personName, done) {
+    Person.find({name: personName}, (error, peopleFound) => {
+        if(error) return console.log(error);
+        done(null, peopleFound);
+    });
+};
