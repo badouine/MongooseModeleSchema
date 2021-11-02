@@ -95,3 +95,10 @@ var findAndUpdate = (personName, done) => {
         done(null, individual);
     });
 };
+//  Delete One Document Using model.findByIdAndRemove
+var removeById = (personId, done) => {
+    Person.findByIdAndRemove(personId, (error, removedPerson) => {
+        if(error) return console.log(error);
+        done(null, removedPerson);
+    });
+};
