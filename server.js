@@ -30,11 +30,17 @@ var personSchema = new Schema({
 });
 
 var Person = mongoose.model('Person', personSchema);
-let Naruto = function(done) {
-    return new Person({
+var Human = function(done) {
+    var person = new Person({name: 'Naruto', age:24, favoriteFoods:['ramen','thieboudieune']})
+    person.save((err, data) => {
+        if(err) return done(err)
+            return done(null, data)
+    })
+   /*  return new Person({
         name: "Naruto Uzumaki",
         age: 22,
         favoriteFoods: ["MachenCheeze", "Ramen"]    });
         if(error) return done(error);
-        done(null, result);
+        done(null, result); */
 };
+
