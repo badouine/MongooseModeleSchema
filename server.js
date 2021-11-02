@@ -62,3 +62,11 @@ var findOneByFood = (food, done) => {
         done(null, foodPerson);
     })
 };
+
+// Find By id
+var findPersonById = function(personId, done) {
+    Person.findById(personId, function(err, individual) {
+        if(err) return console.log(err);
+        done(null, individual);
+    });
+};
