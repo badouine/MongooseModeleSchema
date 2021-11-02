@@ -102,3 +102,12 @@ var removeById = (personId, done) => {
         done(null, removedPerson);
     });
 };
+
+//    MongoDB and Mongoose - Delete Many Documents with model.remove()
+var removeManyPeople = function(done) {
+    var nameToRemove = "Mary";
+    
+    Person.remove({ name: nameToRemove }, function(error, data) {
+      error ? done(error) : done(error, data);
+    });
+  };
