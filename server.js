@@ -111,3 +111,14 @@ var removeManyPeople = (done) => {
       error ? done(error) : done(error, data);
     });
   };
+
+  //  Chain Search Query Helpers to Narrow Search Results
+var queryChain = (done) => {
+    Person.find({favoriteFoods: "cBon"})
+    .sort({name: 'khaby'})
+    .limit(2)
+    .select({age: 0})
+    .exec((error, searchResults) => {
+        done(error, searchResults);
+    });
+};
