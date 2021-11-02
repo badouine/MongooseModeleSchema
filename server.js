@@ -54,3 +54,11 @@ var findPeopleByName = function(personName, done) {
         done(null, peopleFound);
     });
 };
+
+// FindOne Single Matching Document from  Database
+var findOneByFood = (food, done) => {
+    Person.findOne({favoriteFoods: food}, (err, foodPerson) => {
+        if(err) return console.log(err);
+        done(null, foodPerson);
+    })
+};
